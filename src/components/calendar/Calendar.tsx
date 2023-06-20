@@ -8,31 +8,34 @@ interface Props {
 }
 
 const CalendarBlock = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 50px auto 8px;
+  grid-template-areas:
+    ". a ."
+    ". b .";
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-direction: column;
-  height: 150px;
+  gap: 10px;
   background-color: #e5e4e2;
 `;
 
 const WidthBlock = styled.div`
-  width: 90%;
   display: flex;
   justify-content: space-between;
+  grid-area: a;
 `;
 
 const DateBlock = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   gap: 10px;
+  width: 100%;
+  justify-content: center;
 `;
 
 const DayNumber = styled.button<Props>`
   font-size: 25px;
+  width: min-content;
   border-radius: 45px;
   padding: 5px;
   background: ${(p: Props) =>

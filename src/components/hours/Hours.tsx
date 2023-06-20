@@ -5,7 +5,6 @@ import { getTimes } from "../hook/getDate";
 
 const Block = styled.div`
   display: flex;
-  height: 70vh;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 15px 10px 15px 5px;
