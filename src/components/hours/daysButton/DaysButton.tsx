@@ -10,14 +10,17 @@ const Days = styled.div`
 
 const DayB = styled.div`
   width: 100%;
+  border-collapse: collapse;
 `;
+
 const Day = styled.div`
   width: 100%;
   height: 50px;
-  border: solid 1px #b7b7b7;
+  box-shadow: 2px 0 0 0 #dbdbdb, 0 2px 0 0 #dbdbdb, 2px 2px 0 0 #dbdbdb,
+    2px 0 0 0 #dbdbdb inset, 0 2px 0 0 #dbdbdb inset;
   cursor: pointer;
   &:hover {
-    background-color: #f1e7ff;
+    background-color: #e7e7ff;
   }
 `;
 

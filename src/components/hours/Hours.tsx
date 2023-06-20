@@ -22,7 +22,9 @@ const HoursBlock = styled.div`
 const Hour = styled.div`
   width: 50px;
   height: 50px;
-  border: solid 1px #ffffff;
+  &:last-child {
+    height: 10px;
+  }
 `;
 
 const Hours = () => {

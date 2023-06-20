@@ -19,6 +19,9 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   color: red;
+  &:hover {
+    color: black;
+  }
 `;
 
 const Month = ({ date }: { date: string }) => {
