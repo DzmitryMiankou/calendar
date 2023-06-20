@@ -7,7 +7,7 @@ const Block = styled.div`
   display: flex;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 15px 10px 15px 5px;
+  padding: 15px 0 15px 5px;
 `;
 
 const HoursBlock = styled.div`

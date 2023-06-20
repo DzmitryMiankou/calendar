@@ -10,14 +10,25 @@ const Days = styled.div`
 
 const DayB = styled.div`
   width: 100%;
-  border-collapse: collapse;
 `;
 
 const Day = styled.div`
   width: 100%;
   height: 50px;
-  box-shadow: 2px 0 0 0 #dbdbdb, 0 2px 0 0 #dbdbdb, 2px 2px 0 0 #dbdbdb,
-    2px 0 0 0 #dbdbdb inset, 0 2px 0 0 #dbdbdb inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 0 #dbdbdb, 0 2px 0 0 #dbdbdb, 0px 0px 0 0 #dbdbdb,
+    0px 0 0 0 #dbdbdb inset, 0 2px 0 0 #dbdbdb inset;
+  border-left: none;
+  border-right: 2px solid #dbdbdb;
+`;
+
+const FocousBloc = styled.div`
+  width: 92%;
+  margin-top: 2px;
+  margin-left: 2px;
+  height: 42px;
   cursor: pointer;
   &:hover {
     background-color: #e7e7ff;
@@ -43,7 +54,9 @@ const DaysButton = () => {
               onClick={(event) =>
                 set(event, { date: number.toLocaleDateString(), time: time })
               }
-            />
+            >
+              <FocousBloc />
+            </Day>
           ))}
         </DayB>
       ))}

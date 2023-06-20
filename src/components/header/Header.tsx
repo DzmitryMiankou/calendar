@@ -30,7 +30,7 @@ const Header = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void => {
     event.preventDefault();
-    prompt(`Enter event time: YYYY-MM-DD HH:mm:ss`);
+    prompt(`Enter event time: \r\n YYYY-MM-DD \r\n HH:mm:ss`);
   };
 
   return (

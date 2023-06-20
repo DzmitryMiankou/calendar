@@ -17,13 +17,16 @@ const FooterWidth = styled.div`
   color: red;
 `;
 
-const Button = styled.button({
-  fontSize: "20px",
-  background: "none",
-  border: "none",
-  cursor: "pointer",
-  color: "red",
-});
+const Button = styled.button`
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+  &:hover {
+    color: black;
+  }
+`;
 
 const Footer = () => {
   return (
