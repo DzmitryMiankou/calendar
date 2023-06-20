@@ -9,10 +9,10 @@ interface Props {
 
 const CalendarBlock = styled.div`
   display: grid;
-  grid-template-columns: 50px auto 8px;
+  grid-template-columns: 50px auto;
   grid-template-areas:
-    ". a ."
-    ". b .";
+    ". a"
+    ". b";
   width: 100%;
   gap: 10px;
   background-color: #e5e4e2;
@@ -22,6 +22,7 @@ const WidthBlock = styled.div`
   display: flex;
   justify-content: space-between;
   grid-area: a;
+  margin-right: 25px;
 `;
 
 const DateBlock = styled.div`
@@ -43,7 +44,7 @@ const DayNumber = styled.button<Props>`
   color: ${(p: Props) =>
     p.date === new Date().toLocaleString() ? "white" : "none"};
   border: none;
-  cursor: pointer;
+  cursor: default;
 `;
 
 const Calendar = () => {

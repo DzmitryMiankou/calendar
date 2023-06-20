@@ -7,6 +7,9 @@ const MonthBlock = styled.div`
   grid-area: b;
   display: flex;
   font-size: 25px;
+  margin-right: 8%;
+  width: 88%;
+  margin-left: auto;
   justify-content: space-between;
 `;
 

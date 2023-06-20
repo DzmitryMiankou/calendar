@@ -3,8 +3,16 @@ import styled from "styled-components";
 
 const FooterBlock = styled.footer`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #e5e4e2;
+  align-items: center;
+  color: red;
+`;
+
+const FooterWidth = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
   align-items: center;
   color: red;
 `;
@@ -20,8 +28,10 @@ const Button = styled.button({
 const Footer = () => {
   return (
     <FooterBlock>
-      <Button type="button">Today</Button>
-      <Button type="button">Delete</Button>
+      <FooterWidth>
+        <Button type="button">Today</Button>
+        <Button type="button">Delete</Button>
+      </FooterWidth>
     </FooterBlock>
   );
 };
