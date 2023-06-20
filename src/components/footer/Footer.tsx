@@ -4,9 +4,10 @@ import styled from "styled-components";
 const FooterBlock = styled.footer`
   display: flex;
   justify-content: center;
-  background-color: #e5e4e2;
+  background-color: var(--grey-background);
+  border-top: var(--border-block);
   align-items: center;
-  color: red;
+  color: var(--red);
 `;
 
 const FooterWidth = styled.div`
@@ -14,7 +15,7 @@ const FooterWidth = styled.div`
   width: 90%;
   justify-content: space-between;
   align-items: center;
-  color: red;
+  color: var(--red);
 `;
 
 const Button = styled.button`
@@ -22,9 +23,9 @@ const Button = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: red;
+  color: var(--red);
   &:hover {
-    color: black;
+    color: var(--black);
   }
 `;
 

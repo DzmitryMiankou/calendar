@@ -7,8 +7,8 @@ const MonthBlock = styled.div`
   grid-area: b;
   display: flex;
   font-size: 25px;
-  margin-right: 8%;
-  width: 88%;
+  margin-right: 4%;
+  width: 90%;
   margin-left: auto;
   justify-content: space-between;
 `;
@@ -18,9 +18,9 @@ const Button = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: red;
+  color: var(--red);
   &:hover {
-    color: black;
+    color: var(--black);
   }
 `;
 

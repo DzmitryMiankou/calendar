@@ -1,3 +1,14 @@
+:root {
+  --red: red;
+  --black: black;
+  --grey-text: #c6c6c6;
+  --grey-border: #e8e8e8;
+  --grey-background: #f4f4f4;
+  --violet-light-hover: #f2f2fd;
+  --violet-light-active: #e8e8fa;
+  --border-block: 2px solid var(--grey-border);
+}
+
 * {
   margin: 0;
   padding: 0;

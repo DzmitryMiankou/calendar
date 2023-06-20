@@ -14,22 +14,24 @@ const CalendarBlock = styled.div`
     ". a"
     ". b";
   width: 100%;
-  gap: 10px;
-  background-color: #e5e4e2;
+  gap: 5px;
+  border-bottom: var(--border-block);
+  border-top: var(--border-block);
+  background-color: var(--grey-background);
 `;
 
 const WidthBlock = styled.div`
   display: flex;
   justify-content: space-between;
   grid-area: a;
-  margin-right: 25px;
+  gap: 5px;
 `;
 
 const DateBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   width: 100%;
   justify-content: center;
 `;

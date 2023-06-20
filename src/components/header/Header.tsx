@@ -16,14 +16,14 @@ const WidthBlock = styled.div`
 `;
 
 const Button = styled.button`
-  color: red;
+  color: var(--red);
   background: none;
   display: flex;
   align-items: baseline;
   border: none;
   cursor: pointer;
   &:hover {
-    color: black;
+    color: var(--black);
   }
 `;
 

@@ -15,15 +15,19 @@ const HoursBlock = styled.div`
   font-size: 18px;
   flex-direction: column;
   margin: auto;
-  color: grey;
+  color: var(--grey-text);
+  font-weight: 600;
   margin-top: -13px;
 `;
 
 const Hour = styled.div`
   width: 50px;
-  height: 50px;
+  height: 80px;
   &:last-child {
     height: 10px;
+  }
+  @media (max-width: 568px) {
+    height: 50px;
   }
 `;
 
