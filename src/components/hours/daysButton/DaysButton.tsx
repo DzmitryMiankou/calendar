@@ -1,13 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { getWeek, getTimes } from "../../hook/getDate";
+import FocousBlocks from "./focousBlock/FocousBlock";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-
-interface Props {
-  date1: string;
-  date2: string;
-}
 
 const Days = styled.div`
   display: flex;
@@ -35,30 +31,19 @@ const Day = styled.div`
   }
 `;
 
-const FocousBloc = styled.div<Props>`
-  width: 92%;
-  margin-top: 2px;
-  margin-left: 2px;
-  background-color: ${(p: Props) =>
-    p.date1 === p.date2 ? "var(--violet-light-active)" : "none"};
-  height: 92%;
-  cursor: pointer;
-  &:hover {
-    background-color: var(--violet-light-hover);
-  }
-`;
-
 const DaysButton = () => {
-  const state = useSelector((state: RootState) => state);
-
-  console.log(state.userDate.date);
-
+  const state = useSelector((state: RootState) => state.userDate);
   const set = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    a: { date: string; time: string }
+    a: { date: Date; time: string }
   ): void => {
     event.preventDefault();
-    console.log(a);
+    const year = a.date.getFullYear();
+    const month = a.date.getMonth() + 1;
+    const date = a.date.getDate();
+    const hours = a.date.getHours();
+    //const minet = a.date.getMinutes();
+    console.log(+`${year}${month}${date}${hours}00`);
   };
 
   return (
@@ -68,14 +53,9 @@ const DaysButton = () => {
           {getTimes(24).map((time) => (
             <Day
               key={time}
-              onClick={(event) =>
-                set(event, { date: number.toLocaleDateString(), time: time })
-              }
+              onClick={(event) => set(event, { date: number, time: time })}
             >
-              <FocousBloc
-                date1={`${state.userDate.date}`}
-                date2={`${number.toLocaleDateString()}`}
-              />
+              <FocousBlocks number={number} state={state} time={time} />
             </Day>
           ))}
         </DayB>

@@ -1,7 +1,7 @@
 const SETDATE = "SET_DATE";
-
-const initialState: { date: [string] } = {
-  date: ["23.06.2023"],
+//20236212300
+const initialState: { date: [number] } = {
+  date: [20236210500],
 };
 
 const userDateReducer = (state = initialState, action: any) => {
