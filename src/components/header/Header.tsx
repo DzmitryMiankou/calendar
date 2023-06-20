@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import AddIcon from "@mui/icons-material/Add";
 
 const HeaderBlock = styled.header`
   display: flex;
@@ -9,7 +10,7 @@ const HeaderBlock = styled.header`
 const WidthBlock = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   font-size: 40px;
   width: 90%;
 `;
@@ -17,9 +18,10 @@ const WidthBlock = styled.div`
 const Button = styled.button`
   color: red;
   background: none;
+  display: flex;
+  align-items: baseline;
   border: none;
   cursor: pointer;
-  font-size: 40px;
   &:hover {
     color: black;
   }
@@ -37,7 +39,14 @@ const Header = () => {
     <HeaderBlock>
       <WidthBlock>
         <div>Interview Calendar</div>
-        <Button onClick={(e) => set(e)}>+</Button>
+        <Button onClick={(e) => set(e)}>
+          <AddIcon
+            sx={{
+              fontSize: "35px",
+              strokeWidth: 1,
+            }}
+          />
+        </Button>
       </WidthBlock>
     </HeaderBlock>
   );
