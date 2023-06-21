@@ -18,3 +18,21 @@ export function getTimes(params: number): Array<string> {
     });
   });
 }
+
+export function formatDateToNumber(dates: Date, time: string): number {
+  const year = dates.getFullYear();
+  const month = dates.getMonth() + 1;
+  const date = dates.getDate();
+  return +`${year}${month}${date}${time.replace(":", "")}`;
+}
+
+export function deleteElemInArr(
+  arr: Array<number>,
+  elemDel: number
+): Array<number> {
+  const myArray = arr;
+  const newArray = myArray.filter(function (f) {
+    return f !== elemDel;
+  });
+  return newArray;
+}

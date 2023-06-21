@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { getWeek, getTimes } from "../../hook/getDate";
 import FocousBlocks from "./focousBlock/FocousBlock";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../../../redux/store";
+import {
+  userDateListAction,
+  userQvestAction,
+} from "../../../redux/reducers/userDate-reducer";
+import { formatDateToNumber } from "../../hook/getDate";
 
 const Days = styled.div`
   display: flex;
@@ -29,21 +34,32 @@ const Day = styled.div`
   @media (max-width: 568px) {
     height: 50px;
   }
+  cursor: pointer;
+  &:hover {
+    margin-left: 2px;
+    width: 98%;
+    background-color: var(--violet-light-hover);
+  }
 `;
 
 const DaysButton = () => {
+  const dispatch: AppDispatch = useDispatch();
   const state = useSelector((state: RootState) => state.userDate);
-  const set = (
+
+  const setDate = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     a: { date: Date; time: string }
   ): void => {
     event.preventDefault();
-    const year = a.date.getFullYear();
-    const month = a.date.getMonth() + 1;
-    const date = a.date.getDate();
-    const hours = a.date.getHours();
-    //const minet = a.date.getMinutes();
-    console.log(+`${year}${month}${date}${hours}00`);
+    const clickDade = formatDateToNumber(a.date, a.time);
+    const qvestCopyDate = state.date.includes(clickDade);
+    if (qvestCopyDate === true) {
+      dispatch(userQvestAction({ qvest2: true, date: clickDade }));
+    }
+    if (qvestCopyDate === false) {
+      dispatch(userDateListAction(clickDade));
+      dispatch(userQvestAction({ qvest2: false, date: 0 }));
+    }
   };
 
   return (
@@ -53,7 +69,7 @@ const DaysButton = () => {
           {getTimes(24).map((time) => (
             <Day
               key={time}
-              onClick={(event) => set(event, { date: number, time: time })}
+              onClick={(event) => setDate(event, { date: number, time: time })}
             >
               <FocousBlocks number={number} state={state} time={time} />
             </Day>

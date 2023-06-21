@@ -1,5 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../../redux/store";
+import {
+  userDeleteAction,
+  userQvestAction,
+} from "../../redux/reducers/userDate-reducer";
 
 const FooterBlock = styled.footer`
   display: flex;
@@ -30,11 +36,30 @@ const Button = styled.button`
 `;
 
 const Footer = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const state = useSelector((state: RootState) => state.userDate);
+
+  const deleteDate = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
+    event.preventDefault();
+    dispatch(userDeleteAction(state.qvest.date));
+    dispatch(userQvestAction({ qvest2: false, date: 0 }));
+  };
+
   return (
     <FooterBlock>
       <FooterWidth>
         <Button type="button">Today</Button>
-        <Button type="button">Delete</Button>
+        <>
+          {state.qvest.qvest2 ? (
+            <Button onClick={(event) => deleteDate(event)} type="button">
+              Delete
+            </Button>
+          ) : (
+            <></>
+          )}
+        </>
       </FooterWidth>
     </FooterBlock>
   );

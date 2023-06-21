@@ -18,6 +18,9 @@ const CalendarBlock = styled.div`
   border-bottom: var(--border-block);
   border-top: var(--border-block);
   background-color: var(--grey-background);
+  @media (max-width: 568px) {
+    grid-template-columns: 40px auto;
+  }
 `;
 
 const WidthBlock = styled.div`
@@ -47,6 +50,9 @@ const DayNumber = styled.button<Props>`
     p.date === new Date().toLocaleString() ? "white" : "none"};
   border: none;
   cursor: default;
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 `;
 
 const Calendar = () => {

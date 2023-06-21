@@ -18,6 +18,10 @@ const HoursBlock = styled.div`
   color: var(--grey-text);
   font-weight: 600;
   margin-top: -13px;
+  @media (max-width: 568px) {
+    font-size: 14px;
+    margin-top: -10px;
+  }
 `;
 
 const Hour = styled.div`
@@ -28,6 +32,7 @@ const Hour = styled.div`
   }
   @media (max-width: 568px) {
     height: 50px;
+    width: 40px;
   }
 `;
 

@@ -13,6 +13,12 @@ const WidthBlock = styled.div`
   align-items: center;
   font-size: 40px;
   width: 90%;
+  @media (max-width: 480px) {
+    font-size: 30px;
+  }
+  @media (max-width: 350px) {
+    font-size: 25px;
+  }
 `;
 
 const Button = styled.button`
