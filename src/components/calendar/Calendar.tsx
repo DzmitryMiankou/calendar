@@ -45,9 +45,13 @@ const DayNumber = styled.button<Props>`
   border-radius: 45px;
   padding: 5px;
   background: ${(p: Props) =>
-    p.date === new Date().toLocaleString() ? "red" : "none"};
+    p.date === new Date().toLocaleString("ru-RU", { dateStyle: "short" })
+      ? "red"
+      : "none"};
   color: ${(p: Props) =>
-    p.date === new Date().toLocaleString() ? "white" : "none"};
+    p.date === new Date().toLocaleString("ru-RU", { dateStyle: "short" })
+      ? "white"
+      : "none"};
   border: none;
   cursor: default;
   @media (max-width: 480px) {
@@ -71,7 +75,7 @@ const Calendar = () => {
             <DayNumber
               key={number.toLocaleString()}
               type="button"
-              date={number.toLocaleString()}
+              date={number.toLocaleString("ru-RU", { dateStyle: "short" })}
             >
               {number.toLocaleString("en-US", {
                 day: "numeric",
@@ -81,7 +85,7 @@ const Calendar = () => {
         ))}
       </WidthBlock>
       <Month
-        date={getWeek()[0].toLocaleString("en-US", {
+        date={getWeek()[0].toLocaleString("ru-RU", {
           month: "long",
           year: "numeric",
         })}

@@ -1,9 +1,28 @@
+function getYearMonthDay(data: Date) {
+  return {
+    year: data.getFullYear(),
+    month: data.getMonth() + 1,
+    date: data.getDate(),
+  };
+}
+
 export function getWeek(): Array<Date> {
-  const curr = new Date();
+  const now = new Date();
+  const numberDayInWeek = new Date().getDay();
+  const getWeekDay = () => {
+    const getYearMD = getYearMonthDay(now);
+    const curr = new Date(
+      `${getYearMD.year}-${getYearMD.month}-${
+        numberDayInWeek === 0 ? Math.abs(getYearMD.date - 7) : getYearMD.date
+      }`
+    );
+    return curr;
+  };
+  console.log(getWeekDay());
   let week: Array<Date> = [];
   for (let i = 1; i <= 7; i++) {
-    const first = curr.getDate() - curr.getDay() + i;
-    const day = new Date(curr.setDate(first));
+    const first = getWeekDay().getDate() - getWeekDay().getDay() + i;
+    const day = new Date(getWeekDay().setDate(first));
     week.push(day);
   }
   return week;
@@ -20,10 +39,11 @@ export function getTimes(params: number): Array<string> {
 }
 
 export function formatDateToNumber(dates: Date, time: string): number {
-  const year = dates.getFullYear();
-  const month = dates.getMonth() + 1;
-  const date = dates.getDate();
-  return +`${year}${month}${date}${time.replace(":", "")}`;
+  const getYearMD = getYearMonthDay(dates);
+  return +`${getYearMD.year}${getYearMD.month}${getYearMD.date}${time.replace(
+    ":",
+    ""
+  )}`;
 }
 
 export function deleteElemInArr(
