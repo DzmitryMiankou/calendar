@@ -18,7 +18,6 @@ export function getWeek(): Array<Date> {
     );
     return curr;
   };
-  console.log(getWeekDay());
   let week: Array<Date> = [];
   for (let i = 1; i <= 7; i++) {
     const first = getWeekDay().getDate() - getWeekDay().getDay() + i;
