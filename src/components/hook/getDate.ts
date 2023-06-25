@@ -1,4 +1,10 @@
-function getYearMonthDay(data: Date) {
+interface YearMonthDayTYPE<T> {
+  year: T;
+  month: T;
+  date: T;
+}
+
+function getYearMonthDay(data: Date): YearMonthDayTYPE<number> {
   return {
     year: data.getFullYear(),
     month: data.getMonth() + 1,

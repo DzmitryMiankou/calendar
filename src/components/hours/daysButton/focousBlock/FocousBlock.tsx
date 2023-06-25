@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { formatDateToNumber } from "../../../hook/getDate";
 
-interface Props {
-  date1: number;
-  date2: number;
-  date3: number;
+interface Props<T> {
+  date1: T;
+  date2: T;
+  date3: T;
 }
 
 interface PropsState {
@@ -14,18 +14,18 @@ interface PropsState {
   time: string;
 }
 
-const FocousBlock = styled.div<Props>`
+const FocousBlock = styled.div<Props<number>>`
   width: 92%;
   margin-top: 2px;
   margin-left: 2px;
-  background-color: ${(p: Props) =>
+  background-color: ${(p: Props<number>) =>
     p.date1 === p.date3
       ? "var(--violet-light-delete)"
       : "none" || p.date1 === p.date2
       ? "var(--violet-light-active)"
       : "none"};
   height: 92%;
-  display: ${(p: Props) => (p.date1 === p.date2 ? "block" : "none")};
+  display: ${(p: Props<number>) => (p.date1 === p.date2 ? "block" : "none")};
   cursor: pointer;
   &:hover {
     background-color: var(--violet-light-hover);
