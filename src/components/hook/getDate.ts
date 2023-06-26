@@ -15,7 +15,7 @@ function getYearMonthDay(data: Date): YearMonthDayTYPE<number> {
 export function getWeek(): Array<Date> {
   const getWeekDay = () => {
     const now = new Date();
-    const numberDayInWeek = new Date().getDay();
+    const numberDayInWeek = now.getDay();
     const getYearMD = getYearMonthDay(now);
     const curr = new Date(
       `${getYearMD.year}-${getYearMD.month}-${
