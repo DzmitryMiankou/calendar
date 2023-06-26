@@ -17,8 +17,7 @@ interface PropsState {
 const FocousBlock = styled.div<Props<number>>`
   width: 92%;
   height: 92%;
-  margin-top: 2px;
-  margin-left: 2px;
+  margin: 0 2% 0 2%;
   background-color: ${(p: Props<number>) =>
     p.date1 === p.date3
       ? "var(--violet-light-delete)"

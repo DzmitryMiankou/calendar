@@ -1,12 +1,12 @@
 :root {
   --red: red;
   --black: black;
-  --grey-text: #c6c6c6;
-  --grey-border: #e8e8e8;
-  --grey-background: #f4f4f4;
-  --violet-light-hover: #f9f9ff;
-  --violet-light-active: #eeeeff;
-  --violet-light-delete: #bebeff;
+  --grey-text: #a8a8a8;
+  --grey-border: #c8c8c8;
+  --grey-background: #a8a8a85b;
+  --violet-light-hover: #efd4d1;
+  --violet-light-active: #efb9b4;
+  --violet-light-delete: #ff000081;
   --border-block: 2px solid var(--grey-border);
 }
 
