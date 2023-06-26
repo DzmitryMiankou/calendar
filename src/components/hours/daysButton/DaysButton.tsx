@@ -37,8 +37,8 @@ const Day = styled.div`
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    margin-left: 2%;
-    width: 98%;
+    margin-left: 2px;
+    width: calc(100% - 2px);
     background-color: var(--violet-light-hover);
   }
 `;

@@ -12,22 +12,23 @@ function getYearMonthDay(data: Date): YearMonthDayTYPE<number> {
   };
 }
 
+function getNowWeek(): Date {
+  const now = new Date();
+  const numberDayInWeek = now.getDay();
+  const getYearMD = getYearMonthDay(now);
+  const curr = new Date(
+    `${getYearMD.year}-${getYearMD.month}-${
+      numberDayInWeek === 0 ? Math.abs(getYearMD.date - 7) : getYearMD.date
+    }`
+  );
+  return curr;
+}
+
 export function getWeek(): Array<Date> {
-  const getWeekDay = () => {
-    const now = new Date();
-    const numberDayInWeek = now.getDay();
-    const getYearMD = getYearMonthDay(now);
-    const curr = new Date(
-      `${getYearMD.year}-${getYearMD.month}-${
-        numberDayInWeek === 0 ? Math.abs(getYearMD.date - 7) : getYearMD.date
-      }`
-    );
-    return curr;
-  };
   let week: Array<Date> = [];
   for (let i = 1; i <= 7; i++) {
-    const first = getWeekDay().getDate() - getWeekDay().getDay() + i;
-    const day = new Date(getWeekDay().setDate(first));
+    const first = getNowWeek().getDate() - getNowWeek().getDay() + i;
+    const day = new Date(getNowWeek().setDate(first));
     week.push(day);
   }
   return week;
