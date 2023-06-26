@@ -17,7 +17,7 @@ interface PropsState {
 const FocousBlock = styled.div<Props<number>>`
   width: 92%;
   height: 92%;
-  margin: 0 2% 0 2%;
+  margin: 4% 0 2% 1%;
   background-color: ${(p: Props<number>) =>
     p.date1 === p.date3
       ? "var(--violet-light-delete)"
@@ -26,6 +26,7 @@ const FocousBlock = styled.div<Props<number>>`
       : "none"};
   display: ${(p: Props<number>) => (p.date1 === p.date2 ? "block" : "none")};
   cursor: pointer;
+  transition: 0.2s;
   &:hover {
     background-color: var(--violet-light-hover);
   }

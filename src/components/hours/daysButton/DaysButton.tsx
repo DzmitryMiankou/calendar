@@ -35,6 +35,7 @@ const Day = styled.div`
     height: 50px;
   }
   cursor: pointer;
+  transition: 0.2s;
   &:hover {
     margin-left: 2%;
     width: 98%;
