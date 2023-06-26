@@ -19,10 +19,9 @@ type Bool = {
   date: number;
 };
 
-const initialState: {
-  date: Array<number>;
-  qvest: Bool;
-} = {
+type InitState = { date: Array<number>; qvest: Bool };
+
+const initialState: InitState = {
   date: [
     20236200400, 20236211100, 20236220300, 20236230300, 20236240300,
     20236260300, 20236280300,

@@ -25,11 +25,8 @@ const FocousBlock = styled.div<Props<number>>`
       ? "var(--violet-light-active)"
       : "none"};
   display: ${(p: Props<number>) => (p.date1 === p.date2 ? "block" : "none")};
+  z-index: -1;
   cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    background-color: var(--violet-light-hover);
-  }
 `;
 
 const FocousBlocks = ({ number, state, time }: PropsState) => {
