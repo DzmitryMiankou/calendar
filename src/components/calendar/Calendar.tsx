@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { getWeek } from "../hook/getDate";
 import Month from "./month/Month";
-
-interface Props {
-  date: string;
-}
+import Day from "./day/Day";
 
 const CalendarBlock = styled.div`
   display: grid;
@@ -30,58 +27,12 @@ const WidthBlock = styled.div`
   gap: 5px;
 `;
 
-const DateBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  width: 100%;
-  justify-content: center;
-`;
-
-const DayNumber = styled.button<Props>`
-  font-size: 25px;
-  width: min-content;
-  border-radius: 45px;
-  padding: 5px;
-  background: ${(p: Props) =>
-    p.date === new Date().toLocaleString("ru-RU", { dateStyle: "short" })
-      ? "red"
-      : "none"};
-  color: ${(p: Props) =>
-    p.date === new Date().toLocaleString("ru-RU", { dateStyle: "short" })
-      ? "white"
-      : "none"};
-  border: none;
-  cursor: default;
-  @media (max-width: 480px) {
-    font-size: 18px;
-  }
-`;
-
 const Calendar = () => {
   return (
     <CalendarBlock>
       <WidthBlock>
-        {getWeek().map((number) => (
-          <DateBlock key={number.toLocaleString()}>
-            <div>
-              {number
-                .toLocaleString("en-US", {
-                  weekday: "short",
-                })
-                .slice(0, -2)}
-            </div>
-            <DayNumber
-              key={number.toLocaleString()}
-              type="button"
-              date={number.toLocaleString("ru-RU", { dateStyle: "short" })}
-            >
-              {number.toLocaleString("en-US", {
-                day: "numeric",
-              })}
-            </DayNumber>
-          </DateBlock>
+        {getWeek().map((number, i) => (
+          <Day key={i} number={number} />
         ))}
       </WidthBlock>
       <Month

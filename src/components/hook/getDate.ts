@@ -4,6 +4,16 @@ interface YearMonthDayTYPE<T> {
   date: T;
 }
 
+export function getWeek(): Array<Date> {
+  let week: Array<Date> = [];
+  for (let i = 1; i <= 7; i++) {
+    const first = getNowWeek().getDate() - getNowWeek().getDay() + i;
+    const day = new Date(getNowWeek().setDate(first));
+    week.push(day);
+  }
+  return week;
+}
+
 function getYearMonthDay(data: Date): YearMonthDayTYPE<number> {
   return {
     year: data.getFullYear(),
@@ -22,16 +32,6 @@ function getNowWeek(): Date {
     }`
   );
   return curr;
-}
-
-export function getWeek(): Array<Date> {
-  let week: Array<Date> = [];
-  for (let i = 1; i <= 7; i++) {
-    const first = getNowWeek().getDate() - getNowWeek().getDay() + i;
-    const day = new Date(getNowWeek().setDate(first));
-    week.push(day);
-  }
-  return week;
 }
 
 export function getTimes(params: number): Array<string> {
